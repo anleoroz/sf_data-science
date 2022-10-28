@@ -6,6 +6,7 @@
 import random
 import numpy as np
 
+
 def random_predict(number:int = np.random.randint(1, 101)) -> int:
         
     """Рандомно угадываем число
@@ -28,12 +29,13 @@ def random_predict(number:int = np.random.randint(1, 101)) -> int:
         elif predict_number > number:
             lst_num = list (range (lst_num [0], predict_number)) 
         else:
-            lst_num = list (range (predict_number, lst_num [-1]+2))
+            lst_num = list (range (predict_number, lst_num [-1] + 2))
     return count
 
 
 def score_game(random_predict) -> int:
-    """За какое количество попыток в среднем из 1000 подходов угадывает наш алгоритм
+    """За какое количество попыток в среднем из 1000 подходов 
+    угадывает наш алгоритм
 
     Args:
         random_predict ([type]): функция угадывания
@@ -43,7 +45,7 @@ def score_game(random_predict) -> int:
     """
     count_ls = [] # список для сохранения количества попыток
     np.random.seed(1) # фиксируем сид для воспроизводимости
-    random_array = np.random.randint(1, 101, size=(1000)) # загадали список чисел
+    random_array = np.random.randint(1, 101, size=(1000)) # список чисел
 
     for number in random_array:
         count_ls.append(random_predict(number))
